@@ -1,0 +1,200 @@
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+  overflow-x: hidden;
+  width: 100%;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* -----------variable--------- */
+:root {
+  --main-color: #222222;
+  --text-color: #e5e7eb;
+  --second-color: #ff4112;
+}
+/* ------------base---------- */
+.wrapper {
+}
+
+.hidden {
+  display: none !important;
+}
+
+.movie-heading {
+  font-size: 48px;
+  font-weight: 500;
+}
+
+.movie-heading-medium {
+  font-size: 36px;
+  margin-bottom: 0.5rem;
+}
+
+.movie-heading-small {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+.movie-desc {
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: justify;
+  font-weight: 300;
+}
+
+.movie-desc-medium {
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: justify;
+}
+
+.movie-watch {
+  background-color: var(--main-color);
+  color: var(--text-color);
+}
+
+/* -------------button--------- */
+
+.btn-search {
+  font-size: 24px;
+  color: white;
+}
+.btn-search:hover {
+  color: red;
+}
+.btn-control-movie {
+  display: inline-block;
+  background-color: var(--main-color);
+  color: var(--text-color);
+  padding: 15px 20px;
+  border-radius: 8px;
+  transition: all linear 0.25s;
+}
+
+.btn-control-movie:hover {
+  color: var(--text-color);
+  background-color: #0c0c0c;
+}
+/* -----------header------------ */
+.header {
+  padding: 10px 16px;
+  width: 100%;
+  transition: background-color linear 0.25s;
+}
+input[name="searchName"] {
+  display: inline-block;
+  height: 45px;
+  width: 300px;
+  /* background: #1A1A1A; */
+  border: 0;
+  outline: none;
+  padding: 0 10px;
+  transition: all ease 0.5s;
+}
+
+/* -----------banner---------- */
+.banner {
+  background-repeat: no-repeat;
+  background-position: 50% center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.banner-wrapper {
+  transform: translate(-50%, -50%);
+}
+
+.banner-content {
+  flex: 1;
+  max-width: 600px;
+}
+.banner-image {
+  flex-shrink: 0;
+}
+
+/* ------------main------------- */
+.main {
+  background-color: var(--main-color);
+  padding-bottom: 60px;
+}
+
+.list-movie {
+  margin: 0;
+  padding: 0;
+}
+
+.section-heading {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.item-movie {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  transition: all linear 0.25s;
+}
+
+.item-movie:hover {
+  background-color: #0c0c0c;
+}
+
+.item-movie:hover .movie-heading-small {
+  color: red;
+}
+
+.item-image img {
+  border-radius: 8px;
+}
+
+/* -----------footer------------- */
+.footer {
+  background-color: #2a2a2a;
+}
+
+.contact-list {
+  gap: 0 25px;
+}
+.contact-item a {
+  color: white;
+  font-size: 24px;
+}
+
+/* ---------------slider----------- */
+/* the slides */
+.slick-slide {
+  margin: 0 15px;
+  max-width: 200px;
+  height: 370px;
+}
+/* the parent */
+.slick-list {
+  margin: 0 -15px;
+}
+.slick-slider {
+  position: relative;
+  overflow-x: hidden;
+}
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  border: 0;
+  background-color: transparent;
+  color: red;
+  font-size: 50px;
+}
+.slick-prev {
+  left: 10px;
+}
+.slick-next {
+  right: 10px;
+}

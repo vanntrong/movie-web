@@ -1,0 +1,59 @@
+.view {
+  background-repeat: no-repeat;
+  background-position: 50% center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.view-wrapper {
+  transform: translate(-45%, -50%);
+}
+
+.view-image {
+  flex-shrink: 0;
+}
+
+.view-content {
+  flex: 1;
+  max-width: 800px;
+}
+
+.cates-item {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #2a2a2a;
+  border-radius: 30px;
+  border: 1px solid white;
+}
+
+.cates-item a {
+  color: var(--text-color);
+}
+
+.start {
+  font-size: 20px;
+}
+.start-light {
+  color: var(--second-color);
+}
+
+.main-view {
+  padding-top: 25px;
+  padding-left: 95px;
+  padding-right: 95px;
+}
+
+.official {
+  font-size: 20px;
+}
+
+.official a {
+  color: var(--second-color);
+}
+
+.cast-image img {
+  border-radius: 8px;
+}
+.cast-role {
+  color: var(--second-color);
+}
