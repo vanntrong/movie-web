@@ -66,20 +66,20 @@
         <div class="cast my-3">
           <h3 class="mb-4">Cast</h3>
           <ul class="cast-list d-flex gap-3">
-            <% for( let index = 0; index < 8; index++ ) { %>
+            <% for( let i = 0; i < length; i++ ) { %>
             <li class="cast-item">
               <div class="cast-image">
-                <img src=<%= `https://image.tmdb.org/t/p/w200/${castList[index].profile_path}` %> alt="Cast Image" />
+                <img src=<%= `https://image.tmdb.org/t/p/w200${castListTV[i].profile_path}` %> alt="Cast Image" />
               </div>
-              <h3 class="cast-name movie-heading-small mb-0 text-center"><%= castList[index].name %></h3>
-              <h4 class="cast-role movie-heading-small text-center"><%= castList[index].character %></h4>
+              <h3 class="cast-name movie-heading-small mb-0 text-center"><%= castListTV[i].name %></h3>
+              <h4 class="cast-role movie-heading-small text-center"><%= castListTV[i].character %></h4>
             </li>
             <% } %>
           </ul>
         </div>
         <div class="similar">
           <h3 class="mb-4">Similar Movies</h3>
-          <ul class="similar__movie-list" id="similar-movie"></ul>
+          <ul class="list-similar-tv similar__movie-list" id="similar-movie"></ul>
         </div>
       </div>
       <footer class="footer d-flex justify-content-between px-4 py-2 align-items-center">

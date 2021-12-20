@@ -22,6 +22,12 @@ ul {
 .wrapper {
 }
 
+.pt-custom {
+  padding-top: 60px;
+  padding-left: 95px;
+  padding-right: 95px;
+}
+
 .hidden {
   display: none !important;
 }
@@ -197,4 +203,10 @@ input[name="searchName"] {
 }
 .slick-next {
   right: 10px;
+}
+
+@media screen and (max-width: 1025px) {
+  .footer {
+    flex-direction: column;
+  }
 }

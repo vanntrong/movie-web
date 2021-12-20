@@ -196,11 +196,15 @@ const renderListTopRatedTV = async (movies) => {
 </li>`;
   });
   listMove.innerHTML = htmls.join("");
-  await slider();
+  await slider(".list-movie");
 };
-getListTrendingMovie(renderListTrendingMovie);
-getListPopularMovie(renderListPopularMovie);
-getListTopRatedMovie(renderListTopRatedMovie);
-getListTrendingTV(renderListTrendingTV);
-getListPopularTV(renderListPopularTV);
-getListTopRatedTV(renderListTopRatedTV);
+
+function start() {
+  getListTrendingMovie(renderListTrendingMovie);
+  getListPopularMovie(renderListPopularMovie);
+  getListTopRatedMovie(renderListTopRatedMovie);
+  getListTrendingTV(renderListTrendingTV);
+  getListPopularTV(renderListPopularTV);
+  getListTopRatedTV(renderListTopRatedTV);
+}
+start();

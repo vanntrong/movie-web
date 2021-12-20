@@ -34,6 +34,7 @@
     <!-- Styles css -->
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/view.css" />
+    <link rel="stylesheet" href="/css/watch.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -52,37 +53,38 @@
           </form>
         </div>
       </header>
-      <div class="view position-relative">
-        <div class="view-wrapper w-100 position-absolute top-50 start-50 d-flex align-items-start">
-          <div class="view-image me-3"></div>
-          <div class="view-content"></div>
-        </div>
-      </div>
-      <div class="main main-view">
-        <div class="official">
-          <span>Official Website: </span>
-          <a href="#" class=""></a>
-        </div>
-        <div class="cast my-3">
-          <h3 class="mb-4">Cast</h3>
-          <ul class="cast-list d-flex gap-3">
-            <% for( let index = 0; index < 8; index++ ) { %>
-            <li class="cast-item">
-              <div class="cast-image">
-                <img src=<%= `https://image.tmdb.org/t/p/w200/${castList[index].profile_path}` %> alt="Cast Image" />
+      <div class="main pt-custom">
+        <div class="tv-info d-flex justify-content-center">
+          <div class="tv-image">
+            <img src="https://image.tmdb.org/t/p/w200/lJA2RCMfsWoskqlQhXPSLFQGXEJ.jpg" alt="" />
+          </div>
+          <div class="tv-content">
+            <h3 class="movie-heading-medium">The Flash</h3>
+            <p class="movie-desc-medium">
+              "After a particle accelerator causes a freak storm, CSI Investigator Barry Allen is struck by lightning
+              and falls into a coma. Months later he awakens with the power of super speed, granting him the ability to
+              move through Central City like an unseen guardian angel. Though initially excited by his newfound powers,
+              Barry is shocked to discover he is not the only "meta-human" who was created in the wake of the
+              accelerator explosion -- and not everyone is using their new powers for good. Barry partners with S.T.A.R.
+              Labs and dedicates his life to protect the innocent. For now, only a few close friends and associates know
+              that Barry is literally the fastest man alive, but it won't be long before the world learns what Barry
+              Allen has become...The Flash."
+            </p>
+            <div class="tv-sub-content d-flex gap-4">
+              <div class="tv-sub-left d-flex flex-column">
+                <span class="release">Release: 2014-10-07</span>
+                <span class="genre text-wrap">Genre: Drama, Sci-Fi & Fantasy</span>
+                <span class="vote">Point: 7.8 (8954 vote)</span>
               </div>
-              <h3 class="cast-name movie-heading-small mb-0 text-center"><%= castList[index].name %></h3>
-              <h4 class="cast-role movie-heading-small text-center"><%= castList[index].character %></h4>
-            </li>
-            <% } %>
-          </ul>
-        </div>
-        <div class="similar">
-          <h3 class="mb-4">Similar Movies</h3>
-          <ul class="similar__movie-list" id="similar-movie"></ul>
+              <div class="tv-sub-right d-flex flex-column">
+                <span class="country">Country: US</span>
+                <span class="number-season">Season: 8</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <footer class="footer d-flex justify-content-between px-4 py-2 align-items-center">
+      <!-- <footer class="footer d-flex justify-content-between px-4 py-2 align-items-center">
         <div class="footer-copyright">Copyright Van Trong © 2021</div>
         <div class="footer-contact d-flex align-items-center">
           <span class="me-3">Contact me: </span>
@@ -98,7 +100,7 @@
             </li>
           </ul>
         </div>
-      </footer>
+      </footer> -->
     </div>
     <!-- bootstrap script -->
     <script
@@ -113,6 +115,6 @@
     <!-- script -->
     <script src="/script/action.js"></script>
     <script type="module" src="/script/exports.js"></script>
-    <script type="module" src="/script/view.js"></script>
+    <script type="module" src="/script/watch.js"></script>
   </body>
 </html>

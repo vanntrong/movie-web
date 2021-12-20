@@ -1,0 +1,62 @@
+.iframe-box {
+  height: 800px;
+  margin-top: 50px;
+}
+
+.movie-heading-watch {
+  font-size: 24px;
+}
+
+.movie-heading-watch a {
+  color: var(--text-color);
+}
+
+.movie-heading-watch a:hover {
+  color: var(--second-color);
+}
+
+.movie-info {
+  max-width: 800px;
+}
+
+.movie-desc-watch {
+  font-size: 16px;
+}
+
+.tv-info {
+  margin-top: 50px;
+  gap: 0 30px;
+}
+.tv-content {
+  flex: 1;
+  max-width: 600px;
+}
+.tv-image {
+  flex-shrink: 0;
+}
+.genre {
+  max-width: 260px;
+}
+
+.tv-sub-left,
+.tv-sub-right {
+  gap: 4px 0;
+}
+
+@media screen and (max-width: 1025px) {
+  .iframe-box {
+    height: 500px;
+  }
+}
+@media screen and (max-width: 376px) {
+  .iframe-box {
+    height: 300px;
+  }
+  .pt-custom {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .movie-desc-watch {
+    text-align: left;
+  }
+}
