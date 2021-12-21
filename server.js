@@ -38,7 +38,11 @@ app.get("/movie/:id", (req, res) => {
       return response.data;
     })
     .then((data) => {
-      res.render("view-movie", { castList: data.cast });
+      let length = data.cast.length;
+      if(length > 8) {
+        length = 8;
+      }
+      res.render("view-movie", { castList: data.cast, lengthMovie: length });
     })
     .catch((error) => {
       console.log(error);
