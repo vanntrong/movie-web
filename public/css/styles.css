@@ -14,13 +14,12 @@ ul {
 }
 /* -----------variable--------- */
 :root {
-  --main-color: #222222;
+  --main-color: #1f1f1f;
   --text-color: #e5e7eb;
   --second-color: #ff4112;
+  --third-color: #222222;
 }
 /* ------------base---------- */
-.wrapper {
-}
 
 .pt-custom {
   padding-top: 60px;
@@ -205,8 +204,33 @@ input[name="searchName"] {
   right: 10px;
 }
 
-@media screen and (max-width: 1025px) {
-  .footer {
-    flex-direction: column;
-  }
+.main-search {
+  height: 100vh;
+}
+
+.form-wrapper {
+  margin-top: 200px;
+}
+
+.form-input input {
+  background-color: #1a1a1a;
+  color: var(--text-color);
+  padding: 30px 16px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.form input::placeholder {
+  color: #999;
+}
+
+.main-result {
+  height: 100vh;
+  padding: 100px;
+}
+
+.result-list {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 20px;
 }

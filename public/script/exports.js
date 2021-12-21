@@ -11,6 +11,7 @@ export const imageLargeURL = "https://image.tmdb.org/t/p/original";
 export const posterImageURL = "https://image.tmdb.org/t/p/w300";
 export const imageSmallURL = "https://image.tmdb.org/t/p/w200";
 export const getMovieApi = " https://www.2embed.ru/embed/tmdb/movie?id=";
+export const getTvApi = "https://www.2embed.ru/embed/tmdb/tv?id=";
 export function slider(nameList) {
   $(nameList).slick({
     dots: false,
@@ -109,4 +110,13 @@ export const renderListSimilarTv = async (movies) => {
   });
   listSimilarTv.innerHTML = htmls.join("");
   await slider(".list-similar-tv");
+};
+
+export var getParameterByName = (name, url = window.location.href) => {
+  name = name.replace(/[\[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return "";
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
 };

@@ -4,6 +4,7 @@ const ejs = require("ejs");
 const _ = require("lodash");
 const axios = require("axios");
 const { response } = require("express");
+const { applyEach } = require("async");
 const app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,8 +23,8 @@ const popularTVApi = "/tv/popular?api_key=";
 const topRatedTVApi = "/tv/top_rated?api_key=";
 const imageLargeURL = "https://image.tmdb.org/t/p/original";
 const posterImageURL = "https://image.tmdb.org/t/p/w300";
-// https://api.themoviedb.org/3/trending/movie/week?api_key=89fd6fee1082a41f4d5d9fe3c1ac3052
-// router
+const searchApi = "https://api.themoviedb.org/3/search/multi?api_key=";
+// https://api.themoviedb.org/3/search/multi?api_key=89fd6fee1082a41f4d5d9fe3c1ac3052&language=en-US&query=
 
 app.get("/", (req, res) => {
   res.render("index");
@@ -70,6 +71,30 @@ app.get("/movie/:id/watch", (req, res) => {
 app.get("/tv/:id/watch", (req, res) => {
   res.render("watch-tv");
 });
+
+app.get("/tv/:id/episode", (req, res) => {
+  res.render("watch-tv-farme");
+});
+
+app.get("/search", (req, res) => {
+  res.render("search");
+});
+
+app.post("/search", (req, res) => {
+  const searchRequest = req.body.searchName;
+  axios
+    .get(`${searchApi}${apiKey}&query=${searchRequest}`)
+    .then((res) => {
+      return res.data.results;
+    })
+    .then((e) => {
+      res.render("search-result", { results: e, keyword: searchRequest });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
 // listen server
 app.listen(PORT, () => {
   console.log("Server is listening port 3000");

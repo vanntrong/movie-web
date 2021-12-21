@@ -1,4 +1,5 @@
-.iframe-box {
+.iframe-box,
+.iframe-box-tv {
   height: 800px;
   margin-top: 50px;
 }
@@ -43,20 +44,75 @@
   gap: 4px 0;
 }
 
-@media screen and (max-width: 1025px) {
-  .iframe-box {
-    height: 500px;
-  }
+.active {
+  background-color: var(--second-color) !important;
 }
-@media screen and (max-width: 376px) {
-  .iframe-box {
-    height: 300px;
-  }
-  .pt-custom {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  .movie-desc-watch {
-    text-align: left;
-  }
+
+.episode-wrapper {
+  background-color: var(--third-color);
+  padding: 30px 30px 40px;
+  margin: 30px auto 0;
+  max-width: 1550px;
+  position: relative;
+}
+
+.dropdown {
+  cursor: pointer;
+  max-width: 180px;
+}
+
+.dropdown h3 {
+  font-size: 18px;
+  user-select: none;
+}
+
+.season-list {
+  width: 117px;
+  border-radius: 8px 0 0 8px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-height: 150px;
+  position: absolute;
+}
+
+.season-item {
+  width: 100px;
+}
+
+.season-item button {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 6px 6px;
+}
+
+.season-item button:hover {
+  background-color: #999;
+}
+
+.episode-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px 10px;
+}
+
+.episode-item a {
+  display: inline-block;
+  padding: 10px 50px 10px 10px;
+  background-color: #292929;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 235px;
+  width: 235px;
+  white-space: nowrap;
+  color: var(--text-color);
+  font-weight: 300;
+}
+
+.episode-item a i {
+  font-size: 12px;
+}
+
+.episode-item:hover a {
+  background-color: #363636;
 }

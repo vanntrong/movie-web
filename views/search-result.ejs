@@ -1,0 +1,25 @@
+<%- include("./partials/header") %>
+<div class="main main-result">
+  <div class="result-wrapper">
+    <h2>Search result for "<%=keyword%>"</h2>
+    <ul class="mt-5 result-list">
+     
+      <% for( let index = 0; index < results.length; index++ ) { %>
+      <li class="item-movie pb-2">
+        <a href="/<%=results[index].media_type%>/<%= results[index].id %>  ">
+          <div class="item-image">
+            <img src="https://image.tmdb.org/t/p/w200<%= results[index].poster_path %> " alt="" />
+          </div>
+          <% if(results[index].media_type === "tv"){ %>
+            <h3 class="movie-heading-small ps-2 pt-2"><%= results[index].original_name %> </h3>
+         <% } %>
+         <% if(results[index].media_type === "movie"){ %>
+          <h3 class="movie-heading-small ps-2 pt-2"><%= results[index].original_title %></h3>
+          <% } %>
+        </a>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+</div>
+<%- include("./partials/footer") %>
