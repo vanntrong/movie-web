@@ -7,8 +7,8 @@ $(window).scroll(function () {
     header.style.backgroundColor = "transparent";
   }
 });
-$(window).on("load", (event)=> {
+setTimeout(() => {
   $("body").removeClass("pre-loading")
-  $(".load").delay(120).fadeOut("fast")
-})
+$(".load").delay(50).fadeOut("fast")
+}, 100);
 

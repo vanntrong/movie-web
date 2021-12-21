@@ -130,6 +130,7 @@ input[name="searchName"] {
 .main {
   background-color: var(--main-color);
   padding-bottom: 60px;
+  height: 100%;
 }
 
 .list-movie {
@@ -206,7 +207,7 @@ input[name="searchName"] {
 }
 
 .main-search {
-  height: 100vh;
+  height: 100%;
 }
 
 .form-wrapper {
@@ -226,7 +227,7 @@ input[name="searchName"] {
 }
 
 .main-result {
-  height: 100vh;
+  height: 100%;
   padding: 100px;
 }
 

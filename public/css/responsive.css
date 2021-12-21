@@ -20,6 +20,9 @@
   .result-list {
     grid-template-columns: repeat(4,1fr);
   }
+  .view-image {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 1025px) {
@@ -40,6 +43,12 @@
 @media screen and (max-width: 610px){
   .result-list {
     grid-template-columns: repeat(2,1fr);
+  }
+  .banner-image {
+    display: none;
+  }
+  .view-image {
+    display: none;
   }
 }
 @media screen and (max-width: 376px) {
@@ -69,4 +78,7 @@
   .footer {
     flex-direction: column;
   }
+}
+.load {
+  /* display: none; */
 }

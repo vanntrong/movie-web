@@ -210,7 +210,7 @@ async function startWatch() {
 }
 
 startWatch();
-window.addEventListener("load", async () => {
+window.addEventListener("load", () => {
   setTimeout(() => {
     const season = getParameterByName("season");
     const episode = getParameterByName("episode");
@@ -229,6 +229,7 @@ window.addEventListener("load", async () => {
       }
     });
   }, 300);
+
 });
 
 function highlightButton(episode) {
