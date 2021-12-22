@@ -13,40 +13,40 @@ const renderListTrendingMovie=async(listMovie)=>{let randomBannerMovie=Math.floo
       </div>
       <h3 class="movie-heading-small ps-2 pt-2">${movie.title}</h3>
     </a>
-  </li>`});trendingMovie.innerHTML=htmls.join("")};const getListPopularMovie=(callback)=>{fetch(baseURL+popularMovieApi+apiKey).then((response)=>{return response.json()}).then((e)=>{return e.results}).then(callback).catch((error)=>{console.log(error)})};const renderListPopularMovie=async(movies)=>{let listMovie=document.querySelector(`#popular-movie`);let htmls=movies.map((movie)=>{return `<li class="item-movie pb-2">
+  </li>`});trendingMovie.innerHTML=htmls.join("");await slider("#trending-movie")};const getListPopularMovie=(callback)=>{fetch(baseURL+popularMovieApi+apiKey).then((response)=>{return response.json()}).then((e)=>{return e.results}).then(callback).catch((error)=>{console.log(error)})};const renderListPopularMovie=async(movies)=>{let listMovie=document.querySelector(`#popular-movie`);let htmls=movies.map((movie)=>{return `<li class="item-movie pb-2">
     <a href="movie/${movie.id}">
       <div class="item-image">
         <img src="${imageSmallURL + movie.poster_path}" alt="" />
       </div>
       <h3 class="movie-heading-small ps-2 pt-2">${movie.title}</h3>
     </a>
-  </li>`});listMovie.innerHTML=htmls.join("")};const getListTopRatedMovie=(callback)=>{fetch(baseURL+topRatedMovieApi+apiKey).then((response)=>{return response.json()}).then((e)=>{return e.results}).then(callback).catch((error)=>{console.log(error)})};const renderListTopRatedMovie=async(movies)=>{let listMove=document.querySelector("#top-rated-movie");let htmls=movies.map((movie)=>{return `<li class="item-movie pb-2">
+  </li>`});listMovie.innerHTML=htmls.join("");await slider("#popular-movie")};const getListTopRatedMovie=(callback)=>{fetch(baseURL+topRatedMovieApi+apiKey).then((response)=>{return response.json()}).then((e)=>{return e.results}).then(callback).catch((error)=>{console.log(error)})};const renderListTopRatedMovie=async(movies)=>{let listMove=document.querySelector("#top-rated-movie");let htmls=movies.map((movie)=>{return `<li class="item-movie pb-2">
     <a href="movie/${movie.id}">
       <div class="item-image">
         <img src="${imageSmallURL + movie.poster_path}" alt="" />
       </div>
       <h3 class="movie-heading-small ps-2 pt-2">${movie.title}</h3>
     </a>
-  </li>`});listMove.innerHTML=htmls.join("")};const getListTrendingTV=(callback)=>{fetch(baseURL+trendingTVApi+apiKey).then((response)=>{return response.json()}).then((e)=>{return e.results}).then(callback).catch((error)=>{console.log(error)})};const renderListTrendingTV=async(movies)=>{let listMove=document.querySelector("#trending-tv");let htmls=movies.map((movie)=>{return `<li class="item-movie pb-2">
+  </li>`});listMove.innerHTML=htmls.join("");await slider("#top-rated-movie")};const getListTrendingTV=(callback)=>{fetch(baseURL+trendingTVApi+apiKey).then((response)=>{return response.json()}).then((e)=>{return e.results}).then(callback).catch((error)=>{console.log(error)})};const renderListTrendingTV=async(movies)=>{let listMove=document.querySelector("#trending-tv");let htmls=movies.map((movie)=>{return `<li class="item-movie pb-2">
   <a href="tv/${movie.id}">
     <div class="item-image">
       <img src="${imageSmallURL + movie.poster_path}" alt="" />
     </div>
     <h3 class="movie-heading-small ps-2 pt-2">${movie.original_name}</h3>
   </a>
-</li>`});listMove.innerHTML=htmls.join("")};const getListPopularTV=(callback)=>{fetch(baseURL+popularTVApi+apiKey).then((response)=>{return response.json()}).then((e)=>{return e.results}).then(callback).catch((error)=>{console.log(error)})};const renderListPopularTV=async(movies)=>{let listMove=document.querySelector("#popular-tv");let htmls=movies.map((movie)=>{return `<li class="item-movie pb-2">
+</li>`});listMove.innerHTML=htmls.join("");await slider("#trending-tv")};const getListPopularTV=(callback)=>{fetch(baseURL+popularTVApi+apiKey).then((response)=>{return response.json()}).then((e)=>{return e.results}).then(callback).catch((error)=>{console.log(error)})};const renderListPopularTV=async(movies)=>{let listMove=document.querySelector("#popular-tv");let htmls=movies.map((movie)=>{return `<li class="item-movie pb-2">
   <a href="tv/${movie.id}">
     <div class="item-image">
       <img src="${imageSmallURL + movie.poster_path}" alt="" />
     </div>
     <h3 class="movie-heading-small ps-2 pt-2">${movie.original_name}</h3>
   </a>
-</li>`});listMove.innerHTML=htmls.join("")};const getListTopRatedTV=(callback)=>{fetch(baseURL+topRatedTVApi+apiKey).then((response)=>{return response.json()}).then((e)=>{return e.results}).then(callback).catch((error)=>{console.log(error)})};const renderListTopRatedTV=async(movies)=>{let listMove=document.querySelector("#top-rated-tv");let htmls=movies.map((movie)=>{return `<li class="item-movie pb-2">
+</li>`});listMove.innerHTML=htmls.join("");await slider("#popular-tv")};const getListTopRatedTV=(callback)=>{fetch(baseURL+topRatedTVApi+apiKey).then((response)=>{return response.json()}).then((e)=>{return e.results}).then(callback).catch((error)=>{console.log(error)})};const renderListTopRatedTV=async(movies)=>{let listMove=document.querySelector("#top-rated-tv");let htmls=movies.map((movie)=>{return `<li class="item-movie pb-2">
   <a href="tv/${movie.id}">
     <div class="item-image">
       <img src="${imageSmallURL + movie.poster_path}" alt="" />
     </div>
     <h3 class="movie-heading-small ps-2 pt-2">${movie.original_name}</h3>
   </a>
-</li>`});listMove.innerHTML=htmls.join("");await slider(".list-movie")};function start(){getListTrendingMovie(renderListTrendingMovie);getListPopularMovie(renderListPopularMovie);getListTopRatedMovie(renderListTopRatedMovie);getListTrendingTV(renderListTrendingTV);getListPopularTV(renderListPopularTV);getListTopRatedTV(renderListTopRatedTV)}
+</li>`});listMove.innerHTML=htmls.join("");await slider("#top-rated-tv")};function start(){getListTrendingMovie(renderListTrendingMovie);getListPopularMovie(renderListPopularMovie);getListTopRatedMovie(renderListTopRatedMovie);getListTrendingTV(renderListTrendingTV);getListPopularTV(renderListPopularTV);getListTopRatedTV(renderListTopRatedTV)}
 start()

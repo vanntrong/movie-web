@@ -38,7 +38,12 @@
   </head>
   <body class="pre-loading">
     <div class="load">
-      <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
     <div class="wrapper">
       <header class="header d-flex justify-content-between align-items-center fixed-top">
@@ -66,7 +71,7 @@
         </div>
         <div class="cast my-3">
           <h3 class="mb-4">Cast</h3>
-          <ul class="cast-list d-flex gap-3">
+          <ul class="cast-list">
             <% for( let index = 0; index < lengthMovie; index++ ) { %>
             <li class="cast-item">
               <div class="cast-image">
