@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Movie</title>
+    <title><%= `${detailData.name} - Watch - VTCinema` %></title>
     <link rel="shortcut icon" type="image/png" href="/image/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,7 +39,12 @@
   </head>
   <body class="pre-loading">
     <div class="load">
-      <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
     <div class="wrapper">
       <header class="header d-flex justify-content-between align-items-center fixed-top">
@@ -56,15 +61,42 @@
       </header>
       <div class="main pt-custom">
         <div class="iframe-box-tv">
-          <iframe src="" frameborder="0" allowfullscreen="true" class="w-100 h-100"></iframe>
+          <iframe
+            src="<%= `${getTvApi}${id}&s=${season}&e=${episode}` %>"
+            frameborder="0"
+            allowfullscreen="true"
+            class="w-100 h-100"
+          ></iframe>
         </div>
-        <div class="my-4 tv-info-watch"></div>
+        <div class="my-4 tv-info-watch">
+          <div class="tv-content mw-100">
+            <h3 class="movie-heading-medium"><%= detailData.original_name %></h3>
+            <p class="movie-desc-medium w-100"><%= detailData.overview %></p>
+            <div class="tv-sub-content d-flex gap-4">
+              <div class="tv-sub-left d-flex flex-column">
+                <span class="release"><%= `Release: ${detailData.first_air_date}` %> </span>
+                <span class="genre text-wrap">Genre: ...</span>
+                <span class="vote"><%= `Point: ${detailData.vote_average} (${detailData.vote_count} vote)` %> </span>
+              </div>
+              <div class="tv-sub-right d-flex flex-column">
+                <span class="country"><%= `Country: ${detailData.origin_country}` %> </span>
+                <span class="number-season"><%= `Season: ${detailData.number_of_seasons}` %> </span>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="episode-wrapper">
           <div class="dropdown d-flex align-items-start">
             <h3 class="me-2">Season 1</h3>
             <i class="fas fa-sort-down"></i>
           </div>
-          <ul class="season-list d-none"></ul>
+          <ul class="season-list d-none">
+            <% for( let index = 0; index < detailData.number_of_seasons; index++ ) { %>
+            <li class="season-item">
+              <button type="button" value="<%= index+1 %> " class=""><%= `Season ${index+1}` %></button>
+            </li>
+            <% } %>
+          </ul>
 
           <ul class="episode-list mt-3"></ul>
         </div>

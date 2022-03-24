@@ -31,22 +31,6 @@ export function slider(nameList) {
   });
 }
 
-export const renderListSimilarMovie = async (movies) => {
-  let listSimilarMovie = document.querySelector(".similar__movie-list");
-  let htmls = movies.map((movie) => {
-    return ` <li class="item-movie pb-2">
-    <a href="/movie/${movie.id}">
-      <div class="item-image">
-        <img src="https://image.tmdb.org/t/p/w200${movie.poster_path}" alt="" />
-      </div>
-      <h3 class="movie-heading-small ps-2 pt-2">${movie.original_title}</h3>
-    </a>
-  </li>`;
-  });
-  listSimilarMovie.innerHTML = htmls.join("");
-  await slider(".similar__movie-list");
-};
-
 export const renderListSimilarTv = async (movies) => {
   let listSimilarTv = document.querySelector(".list-similar-tv");
   let htmls = movies.map((movie) => {
@@ -60,7 +44,6 @@ export const renderListSimilarTv = async (movies) => {
   </li>`;
   });
   listSimilarTv.innerHTML = htmls.join("");
-  await slider(".list-similar-tv");
 };
 
 export const getListSimilarMovieAndTv = (mediaType, callback) => {

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Movie</title>
+    <title><%= detailData.title ? detailData.title : detailData.original_name %></title>
     <link rel="shortcut icon" type="image/png" href="/image/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -58,10 +58,45 @@
           </a>
         </div>
       </header>
-      <div class="view position-relative">
+      <div
+        class="view position-relative"
+        style="background-image: url(<%=`${imageLargeUrl}${detailData.backdrop_path}`%>)"
+      >
         <div class="view-wrapper w-100 position-absolute top-50 start-50 d-flex align-items-start">
-          <div class="view-image me-3"></div>
-          <div class="view-content"></div>
+          <div class="view-image me-3">
+            <img
+              src="<%=`${posterImageUrl}${detailData.poster_path}` %>"
+              alt="<%= detailData.title ? detailData.title : detailData.original_name %> "
+            />
+          </div>
+          <div class="view-content">
+            <a href="<%=`/${mediaType}/${detailData.id}/watch`%>" class="btn-control-movie movie-watch me-1"
+              ><i class="far fa-play-circle me-1"></i>Watch Now</a
+            >
+            <a href="#" class="btn-control-movie btn-watch-trailer"><i class="fab fa-youtube me-1"></i>Watch Trailer</a>
+            <h2 class="movie-heading-medium">
+              <%= detailData.original_title ? detailData.original_title : detailData.original_name %>
+            </h2>
+            <p class="movie-desc-medium"><%= detailData.overview %></p>
+            <span class="release-date">Release Date: <%= detailData.release_date %></span>
+            <div class="cates my-2">
+              <ul class="cates-list d-flex">
+                <% detailData.genres.forEach(genre => { %>
+                <li class="cates-item me-2">
+                  <a href="#"><%=genre.name %> </a>
+                </li>
+                <% }) %>
+              </ul>
+            </div>
+            <div class="starts">
+              <% for( let index = 0; index < Math.floor(detailData.vote_average); index++ ) { %>
+              <span class="start start-light">★</span>
+              <% } %> <% for( let index = 0; index < 10 - Math.floor(detailData.vote_average); index++ ) { %>
+              <span class="start">★</span>
+              <% } %>
+              <span class="vote-number">(<%=detailData.vote_count %> votes)</span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="main main-view">
@@ -72,20 +107,35 @@
         <div class="cast my-3">
           <h3 class="mb-4">Cast</h3>
           <ul class="cast-list">
-            <% for( let i = 0; i < length; i++ ) { %>
+            <% for( let index = 0; index < lengthMovie; index++ ) { %>
             <li class="cast-item">
               <div class="cast-image">
-                <img src=<%= `https://image.tmdb.org/t/p/w200${castListTV[i].profile_path}` %> alt="Cast Image" />
+                <img src=<%= `https://image.tmdb.org/t/p/w200/${castList[index].profile_path}` %> alt="Cast Image" />
               </div>
-              <h3 class="cast-name movie-heading-small mb-0 text-center"><%= castListTV[i].name %></h3>
-              <h4 class="cast-role movie-heading-small text-center"><%= castListTV[i].character %></h4>
+              <h3 class="cast-name movie-heading-small mb-0 text-center"><%= castList[index].name %></h3>
+              <h4 class="cast-role movie-heading-small text-center"><%= castList[index].character %></h4>
             </li>
             <% } %>
           </ul>
         </div>
         <div class="similar">
-          <h3 class="mb-4">Similar Movies</h3>
-          <ul class="list-similar-tv similar__movie-list" id="similar-movie"></ul>
+          <h3 class="mb-4">
+            <%= `Similar ${mediaType.charAt(0).toUpperCase() + mediaType.slice(1,mediaType.length)}s` %>
+          </h3>
+          <ul class="similar__movie-list" id="similar-slider">
+            <% similarData.forEach(movie => { %>
+            <li class="item-movie pb-2">
+              <a href="<%= `${mediaType}/${movie.id}` %>">
+                <div class="item-image">
+                  <img src="<%= `${imageSmallUrl}${movie.poster_path}` %>" alt="" />
+                </div>
+                <h3 class="movie-heading-small ps-2 pt-2">
+                  <%= movie.original_title ? movie.original_title : movie.original_name %>
+                </h3>
+              </a>
+            </li>
+            <% }) %>
+          </ul>
         </div>
       </div>
       <footer class="footer d-flex justify-content-between px-4 py-2 align-items-center">

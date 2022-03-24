@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Movie</title>
+    <title>
+      <%= `${detailData.original_title ? detailData.original_title : detailData.original_name} - Watch - VTCinema` %>
+    </title>
     <link rel="shortcut icon" type="image/png" href="/image/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,7 +41,12 @@
   </head>
   <body class="pre-loading">
     <div class="load">
-      <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
     <div class="wrapper">
       <header class="header d-flex justify-content-between align-items-center fixed-top">
@@ -56,12 +63,44 @@
       </header>
       <div class="main pt-custom">
         <div class="iframe-box">
-          <iframe src="" frameborder="0" allowfullscreen="true" class="w-100 h-100"></iframe>
+          <!-- <iframe
+            src="<%= `${getMovieApi}${id}` %> "
+            frameborder="0"
+            allowfullscreen="true"
+            class="w-100 h-100"
+          ></iframe> -->
         </div>
-        <div class="my-4 movie-info"></div>
+        <div class="my-4 movie-info">
+          <h2 class="movie-heading-medium movie-heading-watch">
+            <a href="<%= `/movie/${id}` %>"><%= detailData.original_title %></a>
+          </h2>
+          <p class="movie-desc-medium movie-desc-watch"><%= detailData.overview %></p>
+          <span class="release-date"><%= `Release Date: ${detailData.release_date}` %></span>
+          <div class="starts">
+            <% for( let index = 0; index < Math.floor(detailData.vote_average); index++ ) { %>
+            <span class="start start-light">★</span>
+            <% } %> <% for( let index = 0; index < 10 - Math.floor(detailData.vote_average); index++ ) { %>
+            <span class="start">★</span>
+            <% } %>
+            <span class="vote-number">(<%=detailData.vote_count %> votes)</span>
+          </div>
+        </div>
         <div class="similar__movie-watch">
           <h3 class="mb-4">Similar Movie</h3>
-          <ul class="similar__movie-list"></ul>
+          <ul class="similar__movie-list" id="slider">
+            <% similarData.forEach(movie => { %>
+            <li class="item-movie pb-2">
+              <a href="<%= `${mediaType}/${movie.id}` %>">
+                <div class="item-image">
+                  <img src="<%= `${imageSmallUrl}${movie.poster_path}` %>" alt="" />
+                </div>
+                <h3 class="movie-heading-small ps-2 pt-2">
+                  <%= movie.original_title ? movie.original_title : movie.original_name %>
+                </h3>
+              </a>
+            </li>
+            <% }) %>
+          </ul>
         </div>
       </div>
       <footer class="footer d-flex justify-content-between px-4 py-2 align-items-center">
