@@ -26,7 +26,7 @@
     "destroy": "^1.0.4",
     "dotenv": "^16.0.0",
     "ee-first": "^1.1.1",
-    "ejs": "^3.1.6",
+    "ejs": "^3.1.7",
     "encodeurl": "^1.0.2",
     "escape-html": "^1.0.3",
     "escape-string-regexp": "^1.0.5",
